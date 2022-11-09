@@ -1,5 +1,4 @@
 var express = require('express');
-//const { response } = require('../app');
 var router = express.Router();
 const moment = require("moment");
 const Travel = require('../models/travel')
@@ -9,7 +8,7 @@ const Travel = require('../models/travel')
 
 router.get('/search/:departure/:arrival/:date', (req, res) => {
   const { departure, arrival, date } = req.params;
-  console.log("DATE =>", { $gte: moment(date).startOf('day'), $lte: moment(date).endOf('day') })
+  //console.log("DATE =>", { $gte: moment(date).startOf('day'), $lte: moment(date).endOf('day') })
   Travel.find({
     departure: new RegExp(departure, 'i'),
     arrival: new RegExp(arrival, 'i'),
