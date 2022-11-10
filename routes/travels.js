@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const moment = require("moment");
-const Travel = require('../models/travel')
+const Travel = require('../models/travel');
 
 
 // GET the trip details using departure / arrival / date ---//
@@ -15,7 +15,8 @@ router.get('/search/:departure/:arrival/:date', (req, res) => {
     date: { $gte: moment(date).startOf('day'), $lte: moment(date).endOf('day') },
   })
   .then(dbData => {
-    res.json({ dbData })
+    //console.log(dbData[0]);
+    res.json({dbData })
   })
 }); 
 
